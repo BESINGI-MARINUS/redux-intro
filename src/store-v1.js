@@ -5,6 +5,11 @@
 // 4. Create a store variable, and call the redux's createStore(deprecated) function and pass in the conbine/single reducer function(s).
 // 5. You can now dispatch actions using store.dispatch()
 
+// CONNECTING YOUR REACT APP WITH REDOX
+// 1. Install the react-redux package
+// 2. import the Provider component from the react-redux package you just installed in the index.js file
+// 3. Wrap the <App/> component around the <Provider store={store}></Provider>
+
 import { combineReducers, createStore } from "redux";
 
 const initialAccount = {
