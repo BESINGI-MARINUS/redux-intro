@@ -9,6 +9,13 @@
 // 1. Install the react-redux package
 // 2. import the Provider component from the react-redux package you just installed in the index.js file
 // 3. Wrap the <App/> component around the <Provider store={store}></Provider>
+// 4. To select a value from the store, use the useSelector function from react-redux
+
+// USING REDUX MIDDLEWARE(THUNK) TO HANDLE ASYNC ACTIONS
+// 1. Install the redux-thunk package
+// 2. import the applyMiddleware function from redux, and the thunk function from redux-thunk
+// 3. Pass the applyMiddleware(thunk) as the second argument to the createStore function
+// 4. Create an async action dispatcher function, which returns a function that takes in dispatch and currentState as arguments, and then you can dispatch actions inside that function after your async code has completed
 
 import { combineReducers, createStore } from "redux";
 

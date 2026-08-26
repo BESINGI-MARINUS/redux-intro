@@ -30,8 +30,20 @@ export default function accountReducer(state = initialAccount, action) {
   }
 }
 //Account Action Setters
-export function deposit(amount) {
-  return { type: "account/deposit", payload: amount };
+export function deposit(amount, currency) {
+  if (currency === "USD") return { type: "account/deposit", payload: amount };
+
+  return async function (dispatch, getState) {
+    // Do async operation
+    const res = await fetch(
+      `https://api.frankfurter.dev/v2/rate/USD/${currency}`,
+    );
+    const data = await res.json();
+    console.log(data);
+    const convertedAmount = (amount * data.rate).toFixed(2);
+    // Dispatch action
+    dispatch({ type: "account/deposit", payload: convertedAmount });
+  };
 }
 export function withdraw(amount) {
   return { type: "account/withdraw", payload: amount };
